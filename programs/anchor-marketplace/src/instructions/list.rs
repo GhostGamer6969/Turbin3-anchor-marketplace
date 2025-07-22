@@ -83,7 +83,6 @@ impl<'info> List<'info> {
             price,
             bump: bumps.listing,
         });
-
         Ok(())
     }
 
