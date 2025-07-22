@@ -41,6 +41,14 @@ impl<'info> Initialize<'info> {
             !name.is_empty() && name.len() < 4 + 32,
             MarketplaceError::NameToLong,
         );
-        todo!()
+        self.marketplace.set_inner(Marketplace {
+            admin: self.admin.key(),
+            fee,
+            bump: bumps.marketplace,
+            treasury_bump: bumps.treasury,
+            rewards_bump: bumps.rewards_mint,
+            name,
+        });
+        Ok(())
     }
 }
